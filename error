@@ -1,78 +1,56 @@
-Error:  COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[9,47] cannot find symbol
-  symbol:   class ResourceAlreadyExistsException
-  location: package com.dtechideas.restapitesting.exception
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[26,81] cannot find symbol
-  symbol:   class ResourceAlreadyExistsException
-  location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[25,27] cannot find symbol
-  symbol:   class ResourceAlreadyExistsException
-  location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[30,35] cannot find symbol
-  symbol:   class ResourceAlreadyExistsException
-  location: class com.dtechideas.restapitesting.service.impl.EmployeeServiceImpl
-[INFO] 4 errors 
-[INFO] -------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.042 s
-[INFO] Finished at: 2023-07-27T06:08:36Z
-[INFO] ------------------------------------------------------------------------
-Error:  Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project testing-spring-boot-rest-api: Compilation failure: Compilation failure: 
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[9,47] cannot find symbol
-Error:    symbol:   class ResourceAlreadyExistsException
-Error:    location: package com.dtechideas.restapitesting.exception
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[26,81] cannot find symbol
-Error:    symbol:   class ResourceAlreadyExistsException
-Error:    location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[25,27] cannot find symbol
-Error:    symbol:   class ResourceAlreadyExistsException
-Error:    location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
-Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[30,35] cannot find symbol
-Error:    symbol:   class ResourceAlreadyExistsException
-Error:    location: class com.dtechideas.restapitesting.service.impl.EmployeeServiceImpl
-Error:  -> [Help 1]
-Error:  
-Error:  To see the full stack trace of the errors, re-run Maven with the -e switch.
-Error:  Re-run Maven using the -X switch to enable full debug logging.
-Error:  
-Error:  For more information about the errors and possible solutions, please read the following articles:
-Error:  [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
-Error: Process completed with exit code 1.
-yaml
-on:
-  pull_request:
-    branches: '*'
-  push:
-    branches: '*'
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-jobs:
-  Build_and_Test:
-    runs-on: uhg-runner
-    permissions: write-all
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+<!-- 			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin> -->
+		</plugins>
+	</build>
 
-      - name: Set up Java JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '8'
-          distribution: 'adopt'
-
-      - name: Install Maven
-        run: |
-         sudo apt-get update
-         sudo apt-get install -y maven
-
-#       - name: build Maven
-#         run: mvn package --file pom.xml
-      - name: Build with Maven
-        run: mvn clean package
-     
-
-      - name: Run unit tests
-        run: mvn test
+</project>
