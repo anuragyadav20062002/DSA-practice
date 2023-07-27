@@ -1,5 +1,46 @@
+Error:  COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
 Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[9,47] cannot find symbol
   symbol:   class ResourceAlreadyExistsException
+  location: package com.dtechideas.restapitesting.exception
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[26,81] cannot find symbol
+  symbol:   class ResourceAlreadyExistsException
+  location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[25,27] cannot find symbol
+  symbol:   class ResourceAlreadyExistsException
+  location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[30,35] cannot find symbol
+  symbol:   class ResourceAlreadyExistsException
+  location: class com.dtechideas.restapitesting.service.impl.EmployeeServiceImpl
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.042 s
+[INFO] Finished at: 2023-07-27T06:08:36Z
+[INFO] ------------------------------------------------------------------------
+Error:  Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project testing-spring-boot-rest-api: Compilation failure: Compilation failure: 
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[9,47] cannot find symbol
+Error:    symbol:   class ResourceAlreadyExistsException
+Error:    location: package com.dtechideas.restapitesting.exception
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[26,81] cannot find symbol
+Error:    symbol:   class ResourceAlreadyExistsException
+Error:    location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/exception/GloablExceptionHandler.java:[25,27] cannot find symbol
+Error:    symbol:   class ResourceAlreadyExistsException
+Error:    location: class com.dtechideas.restapitesting.exception.GloablExceptionHandler
+Error:  /runner/_work/ipa-java-sample-app/ipa-java-sample-app/src/main/java/com/dtechideas/restapitesting/service/impl/EmployeeServiceImpl.java:[30,35] cannot find symbol
+Error:    symbol:   class ResourceAlreadyExistsException
+Error:    location: class com.dtechideas.restapitesting.service.impl.EmployeeServiceImpl
+Error:  -> [Help 1]
+Error:  
+Error:  To see the full stack trace of the errors, re-run Maven with the -e switch.
+Error:  Re-run Maven using the -X switch to enable full debug logging.
+Error:  
+Error:  For more information about the errors and possible solutions, please read the following articles:
+Error:  [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Error: Process completed with exit code 1.
 yaml
 on:
   pull_request:
